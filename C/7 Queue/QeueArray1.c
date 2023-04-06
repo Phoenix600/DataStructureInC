@@ -9,6 +9,8 @@ struct Queue
     int* Q; 
 };
 
+
+
 void enQueue(struct Queue* q, int key)
 {
     if(q->rear == q->size-1)
