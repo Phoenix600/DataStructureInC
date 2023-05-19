@@ -40,10 +40,15 @@ struct Node*  transpositionLinearSearch(struct Node** head_ref, int key)
 	{
 		if(p->data == key)
 		{
-			q->next = q->next->next;
-			r->next = p;
-			p->next = q;
-			return p;
+			if(q != NULL && r != NULL)
+			{
+				q->next = q->next->next;
+				r->next = p;
+				p->next = q;
+				return p;
+			}
+				return p;
+
 		}
 		r = q;
 		q = p;
@@ -74,7 +79,9 @@ int main()
 	
 	create(&head,A,size);
 	printLL(head);
-	struct Node* result = transpositionLinearSearch(&head,7);
+	struct Node* result = transpositionLinearSearch(&head,12);
+	transpositionLinearSearch(&head,19);
+	transpositionLinearSearch(&head,19);
 	printLL(head);
 
 	return 0;
